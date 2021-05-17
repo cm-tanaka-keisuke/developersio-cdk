@@ -7,6 +7,7 @@
 | # | タイトル | Tags | 内容 | ブログリンク |
 | --- | --- | --- | --- | --- |
 | 1 | 導入 | `1.introduction` | CDK プロジェクトの作成とサンプルリソースの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-1-introduction/)
+| 2 | VPC | `2.vpc` | VPC の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-2-vpc/)
 
 # Usage
 
