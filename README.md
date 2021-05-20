@@ -9,6 +9,7 @@
 | 1 | 導入 | `1.introduction` | CDK プロジェクトの作成とサンプルリソースの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-1-introduction/)
 | 2 | VPC | `2.vpc` | VPC の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-2-vpc/)
 | 3 | テスト | `3.test` | AWS CDK でのテスト方法 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-3-test/)
+| 4 | Context | `4.context` | Context のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-4-context/)
 
 # Usage
 
