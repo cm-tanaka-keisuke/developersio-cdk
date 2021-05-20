@@ -2,6 +2,20 @@ import { expect, countResources, haveResource } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as Devio from '../lib/devio-stack';
 
+test('Context', () => {
+  const app = new cdk.App({
+    context: {
+      'systemName': 'starwars',
+      'envType': 'prd'
+    }
+  });
+  const stack = new Devio.DevioStack(app, 'Context');
+
+  expect(stack).to(haveResource('AWS::EC2::VPC', {
+    Tags: [{ 'Key': 'Name', 'Value': 'starwars-prd-vpc' }]
+  }));
+});
+
 test('Vpc', () => {
   const app = new cdk.App();
   const stack = new Devio.DevioStack(app, 'Vpc');
