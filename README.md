@@ -10,6 +10,7 @@
 | 2 | VPC | `2.vpc` | VPC の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-2-vpc/)
 | 3 | テスト | `3.test` | AWS CDK でのテスト方法 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-3-test/)
 | 4 | Context | `4.context` | Context のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-4-context/)
+| 5 | サブネット | `5.subnet` | サブネットの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-5-subnet/)
 
 # Usage
 
@@ -53,6 +54,6 @@
 | macOS | 10.15.7 |
 | VS Code | 1.56.2 |
 | AWS CLI | 2.1.39 |
-| AWS CDK | 1.104.0 |
+| AWS CDK | 1.105.0 |
 | TypeScript | 4.2.4 |
 | Node.js | v16.1.0 |
