@@ -11,6 +11,7 @@
 | 3 | テスト | `3.test` | AWS CDK でのテスト方法 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-3-test/)
 | 4 | Context | `4.context` | Context のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-4-context/)
 | 5 | サブネット | `5.subnet` | サブネットの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-5-subnet/)
+| 5 | Metadata | `6.metadata` | Metadata の除外設定 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-6-metadata/)
 
 # Usage
 
@@ -51,7 +52,7 @@
 
 | 環境 | バージョン |
 | --- | --- |
-| macOS | 10.15.7 |
+| macOS | 11.3.1 |
 | VS Code | 1.56.2 |
 | AWS CLI | 2.1.39 |
 | AWS CDK | 1.105.0 |
