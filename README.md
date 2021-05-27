@@ -11,7 +11,8 @@
 | 3 | テスト | `3.test` | AWS CDK でのテスト方法 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-3-test/)
 | 4 | Context | `4.context` | Context のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-4-context/)
 | 5 | サブネット | `5.subnet` | サブネットの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-5-subnet/)
-| 5 | Metadata | `6.metadata` | Metadata の除外設定 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-6-metadata/)
+| 6 | Metadata | `6.metadata` | Metadata の除外設定 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-6-metadata/)
+| 7 | ファイル分割 | `7.split-file` | ファイル分割の実施 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-7-split-file/)
 
 # Usage
 
