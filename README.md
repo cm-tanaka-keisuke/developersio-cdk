@@ -13,6 +13,7 @@
 | 5 | サブネット | `5.subnet` | サブネットの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-5-subnet/) | 2021/05/27 |
 | 6 | Metadata | `6.metadata` | Metadata の除外設定 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-6-metadata/) | 2021/05/31 |
 | 7 | ファイル分割 | `7.split-file` | ファイル分割の実施 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-7-split-file/) | 2021/06/03 |
+| 8 | 抽象化 | `8.abstraction` | 抽象クラスの実装 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-8-abstraction/) | 2021/06/07 |
 
 # Usage
 
@@ -56,6 +57,6 @@
 | macOS | 11.3.1 |
 | VS Code | 1.56.2 |
 | AWS CLI | 2.1.39 |
-| AWS CDK | 1.105.0 |
+| AWS CDK | 1.106.1 |
 | TypeScript | 4.2.4 |
 | Node.js | v16.1.0 |
