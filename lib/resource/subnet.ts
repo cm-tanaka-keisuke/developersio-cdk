@@ -2,6 +2,14 @@ import * as cdk from '@aws-cdk/core';
 import { CfnSubnet, CfnVPC } from '@aws-cdk/aws-ec2';
 import { Resource } from './abstract/resource';
 
+interface ResourceInfo {
+    readonly id: string;
+    readonly cidrBlock: string;
+    readonly availabilityZone: string;
+    readonly resourceName: string;
+    readonly assign: (subnet: CfnSubnet) => void;
+}
+
 export class Subnet extends Resource {
     public public1a: CfnSubnet;
     public public1c: CfnSubnet;
@@ -11,6 +19,50 @@ export class Subnet extends Resource {
     public db1c: CfnSubnet;
 
     private readonly vpc: CfnVPC;
+    private readonly resourcesInfo: ResourceInfo[] = [
+        {
+            id: 'SubnetPublic1a',
+            cidrBlock: '10.0.11.0/24',
+            availabilityZone: 'ap-northeast-1a',
+            resourceName: 'subnet-public-1a',
+            assign: subnet => this.public1a = subnet
+        },
+        {
+            id: 'SubnetPublic1c',
+            cidrBlock: '10.0.12.0/24',
+            availabilityZone: 'ap-northeast-1c',
+            resourceName: 'subnet-public-1c',
+            assign: subnet => this.public1c = subnet
+        },
+        {
+            id: 'SubnetApp1a',
+            cidrBlock: '10.0.21.0/24',
+            availabilityZone: 'ap-northeast-1a',
+            resourceName: 'subnet-app-1a',
+            assign: subnet => this.app1a = subnet
+        },
+        {
+            id: 'SubnetApp1c',
+            cidrBlock: '10.0.22.0/24',
+            availabilityZone: 'ap-northeast-1c',
+            resourceName: 'subnet-app-1c',
+            assign: subnet => this.app1c = subnet
+        },
+        {
+            id: 'SubnetDb1a',
+            cidrBlock: '10.0.31.0/24',
+            availabilityZone: 'ap-northeast-1a',
+            resourceName: 'subnet-db-1a',
+            assign: subnet => this.db1a = subnet
+        },
+        {
+            id: 'SubnetDb1c',
+            cidrBlock: '10.0.32.0/24',
+            availabilityZone: 'ap-northeast-1c',
+            resourceName: 'subnet-db-1c',
+            assign: subnet => this.db1c = subnet
+        }
+    ];
 
     constructor(vpc: CfnVPC) {
         super();
@@ -18,41 +70,20 @@ export class Subnet extends Resource {
     };
 
     createResources(scope: cdk.Construct) {
-        this.public1a = new CfnSubnet(scope, 'SubnetPublic1a', {
-            cidrBlock: '10.0.11.0/24',
+        for (const resourceInfo of this.resourcesInfo) {
+            const subnet = this.createSubnet(scope, resourceInfo);
+            resourceInfo.assign(subnet);
+        }
+    }
+
+    private createSubnet(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnSubnet {
+        const subnet = new CfnSubnet(scope, resourceInfo.id, {
+            cidrBlock: resourceInfo.cidrBlock,
             vpcId: this.vpc.ref,
-            availabilityZone: 'ap-northeast-1a',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'subnet-public-1a') }]
+            availabilityZone: resourceInfo.availabilityZone,
+            tags: [{ key: 'Name', value: this.createResourceName(scope, resourceInfo.resourceName) }]
         });
-        this.public1c = new CfnSubnet(scope, 'SubnetPublic1c', {
-            cidrBlock: '10.0.12.0/24',
-            vpcId: this.vpc.ref,
-            availabilityZone: 'ap-northeast-1c',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'subnet-public-1c') }]
-        });
-        this.app1a = new CfnSubnet(scope, 'SubnetApp1a', {
-            cidrBlock: '10.0.21.0/24',
-            vpcId: this.vpc.ref,
-            availabilityZone: 'ap-northeast-1a',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'subnet-app-1a') }]
-        });
-        this.app1c = new CfnSubnet(scope, 'SubnetApp1c', {
-            cidrBlock: '10.0.22.0/24',
-            vpcId: this.vpc.ref,
-            availabilityZone: 'ap-northeast-1c',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'subnet-app-1c') }]
-        });
-        this.db1a = new CfnSubnet(scope, 'SubnetDb1a', {
-            cidrBlock: '10.0.31.0/24',
-            vpcId: this.vpc.ref,
-            availabilityZone: 'ap-northeast-1a',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'subnet-db-1a') }]
-        });
-        this.db1c = new CfnSubnet(scope, 'SubnetDb1c', {
-            cidrBlock: '10.0.32.0/24',
-            vpcId: this.vpc.ref,
-            availabilityZone: 'ap-northeast-1c',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'subnet-db-1c') }]
-        });
+
+        return subnet;
     }
 }
