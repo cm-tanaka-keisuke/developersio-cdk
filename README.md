@@ -17,6 +17,7 @@
 | 9 | リファクタリング | `9.refactoring` | サブネット生成処理のリファクタリング | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-9-refactoring/) | 2021/06/10 |
 | 10 | インターネットゲートウェイ | `10.internet-gateway` | インターネットゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-10-internet-gateway/) | 2021/06/14 |
 | 11 | Elastic IP | `11.elastic-ip` | Elastic IP の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-11-elastic-ip/) | 2021/06/17 |
+| 12 | NAT ゲートウェイ | `12.nat-gateway` | NAT ゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-12-nat-gateway/) | 2021/06/21 |
 
 # Usage
 
