@@ -12,10 +12,11 @@
 | 4 | Context | `4.context` | Context のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-4-context/) | 2021/05/24 |
 | 5 | サブネット | `5.subnet` | サブネットの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-5-subnet/) | 2021/05/27 |
 | 6 | Metadata | `6.metadata` | Metadata の除外設定 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-6-metadata/) | 2021/05/31 |
-| 7 | ファイル分割 | `7.split-file` | ファイル分割の実施 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-7-split-file/) | 2021/06/03 |
-| 8 | 抽象化 | `8.abstraction` | 抽象クラスの実装 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-8-abstraction/) | 2021/06/07 |
-| 9 | リファクタリング | `9.refactoring` | サブネット生成処理のリファクタリング | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-9-refactoring/) | 2021/06/10 |
-| 10 | インターネットゲートウェイ | `10.internet-gateway` | インターネットゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-10-internet-gateway/) | 2021/06/14 |
+| 7 | ファイル分割 | `7.split-file` | ファイル分割の実施 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-7-split-file/) | 2021/06/03 |
+| 8 | 抽象化 | `8.abstraction` | 抽象クラスの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-8-abstraction/) | 2021/06/07 |
+| 9 | リファクタリング | `9.refactoring` | サブネット生成処理のリファクタリング | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-9-refactoring/) | 2021/06/10 |
+| 10 | インターネットゲートウェイ | `10.internet-gateway` | インターネットゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-10-internet-gateway/) | 2021/06/14 |
+| 11 | Elastic IP | `11.elastic-ip` | Elastic IP の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-11-elastic-ip/) | 2021/06/17 |
 
 # Usage
 
