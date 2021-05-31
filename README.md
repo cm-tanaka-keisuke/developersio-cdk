@@ -15,6 +15,7 @@
 | 7 | ファイル分割 | `7.split-file` | ファイル分割の実施 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-7-split-file/) | 2021/06/03 |
 | 8 | 抽象化 | `8.abstraction` | 抽象クラスの実装 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-8-abstraction/) | 2021/06/07 |
 | 9 | リファクタリング | `9.refactoring` | サブネット生成処理のリファクタリング | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-9-refactoring/) | 2021/06/10 |
+| 10 | インターネットゲートウェイ | `10.internet-gateway` | インターネットゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/cloud/aws/cdk-practice-10-internet-gateway/) | 2021/06/14 |
 
 # Usage
 
