@@ -81,7 +81,10 @@ export class Subnet extends Resource {
             cidrBlock: resourceInfo.cidrBlock,
             vpcId: this.vpc.ref,
             availabilityZone: resourceInfo.availabilityZone,
-            tags: [{ key: 'Name', value: this.createResourceName(scope, resourceInfo.resourceName) }]
+            tags: [{
+                key: 'Name',
+                value: this.createResourceName(scope, resourceInfo.resourceName)
+            }]
         });
 
         return subnet;

@@ -14,7 +14,10 @@ export class InternetGateway extends Resource {
 
     createResources(scope: cdk.Construct) {
         this.igw = new CfnInternetGateway(scope, 'InternetGateway', {
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'igw') }]
+            tags: [{
+                key: 'Name',
+                value: this.createResourceName(scope, 'igw')
+            }]
         });
 
         new CfnVPCGatewayAttachment(scope, 'VpcGatewayAttachment', {

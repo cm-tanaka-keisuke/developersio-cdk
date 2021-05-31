@@ -39,7 +39,10 @@ export class ElasticIp extends Resource {
     private createElasticIp(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnEIP {
         const elasticIp = new CfnEIP(scope, resourceInfo.id, {
             domain: 'vpc',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, resourceInfo.resourceName) }]
+            tags: [{
+                key: 'Name',
+                value: this.createResourceName(scope, resourceInfo.resourceName)
+            }]
         });
 
         return elasticIp;

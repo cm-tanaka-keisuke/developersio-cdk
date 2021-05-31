@@ -12,7 +12,10 @@ export class Vpc extends Resource {
     createResources(scope: cdk.Construct) {
         this.vpc = new CfnVPC(scope, 'Vpc', {
             cidrBlock: '10.0.0.0/16',
-            tags: [{ key: 'Name', value: this.createResourceName(scope, 'vpc') }]
+            tags: [{
+                key: 'Name',
+                value: this.createResourceName(scope, 'vpc')
+            }]
         });
     }
 }
