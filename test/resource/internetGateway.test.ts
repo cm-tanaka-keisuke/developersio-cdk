@@ -1,4 +1,4 @@
-import { expect, countResources, haveResource } from '@aws-cdk/assert';
+import { expect, countResources, haveResource, anything } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as Devio from '../../lib/devio-stack';
 
@@ -12,4 +12,8 @@ test('InternetGateway', () => {
     }));
 
     expect(stack).to(countResources('AWS::EC2::VPCGatewayAttachment', 1));
+    expect(stack).to(haveResource('AWS::EC2::VPCGatewayAttachment', {
+        VpcId: anything(),
+        InternetGatewayId: anything()
+    }));
 });
