@@ -18,7 +18,7 @@ export class NatGateway extends Resource {
     private readonly subnetPublic1c: CfnSubnet;
     private readonly elasticIpNgw1a: CfnEIP;
     private readonly elasticIpNgw1c: CfnEIP;
-    private readonly resourcesInfo: ResourceInfo[] = [
+    private readonly resources: ResourceInfo[] = [
         {
             id: 'NatGateway1a',
             resourceName: 'ngw-1a',
@@ -49,7 +49,7 @@ export class NatGateway extends Resource {
     };
 
     createResources(scope: cdk.Construct) {
-        for (const resourceInfo of this.resourcesInfo) {
+        for (const resourceInfo of this.resources) {
             const natGateway = this.createNatGateway(scope, resourceInfo);
             resourceInfo.assign(natGateway);
         }

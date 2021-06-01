@@ -12,7 +12,7 @@ export class ElasticIp extends Resource {
     public ngw1a: CfnEIP;
     public ngw1c: CfnEIP;
 
-    private readonly resourcesInfo: ResourceInfo[] = [
+    private readonly resources: ResourceInfo[] = [
         {
             id: 'ElasticIpNgw1a',
             resourceName: 'eip-ngw-1a',
@@ -30,7 +30,7 @@ export class ElasticIp extends Resource {
     }
 
     createResources(scope: cdk.Construct) {
-        for (const resourceInfo of this.resourcesInfo) {
+        for (const resourceInfo of this.resources) {
             const elasticIp = this.createElasticIp(scope, resourceInfo);
             resourceInfo.assign(elasticIp);
         }

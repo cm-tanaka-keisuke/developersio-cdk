@@ -19,7 +19,7 @@ export class Subnet extends Resource {
     public db1c: CfnSubnet;
 
     private readonly vpc: CfnVPC;
-    private readonly resourcesInfo: ResourceInfo[] = [
+    private readonly resources: ResourceInfo[] = [
         {
             id: 'SubnetPublic1a',
             cidrBlock: '10.0.11.0/24',
@@ -70,7 +70,7 @@ export class Subnet extends Resource {
     };
 
     createResources(scope: cdk.Construct) {
-        for (const resourceInfo of this.resourcesInfo) {
+        for (const resourceInfo of this.resources) {
             const subnet = this.createSubnet(scope, resourceInfo);
             resourceInfo.assign(subnet);
         }

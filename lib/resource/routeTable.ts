@@ -17,8 +17,8 @@ interface AssociationInfo {
 interface ResourceInfo {
     readonly id: string;
     readonly resourceName: string;
-    readonly routesInfo: RouteInfo[];
-    readonly associationsInfo: AssociationInfo[];
+    readonly routes: RouteInfo[];
+    readonly associations: AssociationInfo[];
     readonly assign: (routeTable: CfnRouteTable) => void;
 }
 
@@ -38,16 +38,16 @@ export class RouteTable extends Resource {
     private readonly internetGateway: CfnInternetGateway;
     private readonly natGateway1a: CfnNatGateway;
     private readonly natGateway1c: CfnNatGateway;
-    private readonly resourcesInfo: ResourceInfo[] = [
+    private readonly resources: ResourceInfo[] = [
         {
             id: 'RouteTablePublic',
             resourceName: 'rtb-public',
-            routesInfo: [{
+            routes: [{
                 id: 'RoutePublic',
                 destinationCidrBlock: '0.0.0.0/0',
                 gatewayId: () => this.internetGateway.ref
             }],
-            associationsInfo: [
+            associations: [
                 {
                     id: 'AssociationPublic1a',
                     subnetId: () => this.subnetPublic1a.ref
@@ -62,12 +62,12 @@ export class RouteTable extends Resource {
         {
             id: 'RouteTableApp1a',
             resourceName: 'rtb-app-1a',
-            routesInfo: [{
+            routes: [{
                 id: 'RouteApp1a',
                 destinationCidrBlock: '0.0.0.0/0',
                 natGatewayId: () => this.natGateway1a.ref
             }],
-            associationsInfo: [{
+            associations: [{
                 id: 'AssociationApp1a',
                 subnetId: () => this.subnetApp1a.ref
             }],
@@ -76,12 +76,12 @@ export class RouteTable extends Resource {
         {
             id: 'RouteTableApp1c',
             resourceName: 'rtb-app-1c',
-            routesInfo: [{
+            routes: [{
                 id: 'RouteApp1c',
                 destinationCidrBlock: '0.0.0.0/0',
                 natGatewayId: () => this.natGateway1c.ref
             }],
-            associationsInfo: [{
+            associations: [{
                 id: 'AssociationApp1c',
                 subnetId: () => this.subnetApp1c.ref
             }],
@@ -90,8 +90,8 @@ export class RouteTable extends Resource {
         {
             id: 'RouteTableDb',
             resourceName: 'rtb-db',
-            routesInfo: [],
-            associationsInfo: [
+            routes: [],
+            associations: [
                 {
                     id: 'AssociationDb1a',
                     subnetId: () => this.subnetDb1a.ref
@@ -131,7 +131,7 @@ export class RouteTable extends Resource {
     }
 
     createResources(scope: cdk.Construct) {
-        for (const resourceInfo of this.resourcesInfo) {
+        for (const resourceInfo of this.resources) {
             const routeTable = this.createRouteTable(scope, resourceInfo);
             resourceInfo.assign(routeTable);
         }
@@ -146,11 +146,11 @@ export class RouteTable extends Resource {
             }]
         });
 
-        for (const routeInfo of resourceInfo.routesInfo) {
+        for (const routeInfo of resourceInfo.routes) {
             this.createRoute(scope, routeInfo, routeTable);
         }
 
-        for (const associationInfo of resourceInfo.associationsInfo) {
+        for (const associationInfo of resourceInfo.associations) {
             this.createAssociation(scope, associationInfo, routeTable);
         }
 
