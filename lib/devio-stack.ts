@@ -5,6 +5,7 @@ import { InternetGateway } from './resource/internetGateway';
 import { ElasticIp } from './resource/elasticIp';
 import { NatGateway } from './resource/natGateway';
 import { RouteTable } from './resource/routeTable';
+import { NetworkAcl } from './resource/networkAcl';
 
 export class DevioStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -49,5 +50,17 @@ export class DevioStack extends cdk.Stack {
       natGateway.ngw1c
     );
     routeTable.createResources(this);
+
+    // Network ACL
+    const networkAcl = new NetworkAcl(
+      vpc.vpc,
+      subnet.public1a,
+      subnet.public1c,
+      subnet.app1a,
+      subnet.app1c,
+      subnet.db1a,
+      subnet.db1c
+    );
+    networkAcl.createResources(this);
   }
 }
