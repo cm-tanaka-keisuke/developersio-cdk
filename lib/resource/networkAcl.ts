@@ -128,7 +128,7 @@ export class NetworkAcl extends Resource {
     }
 
     private createEntry(scope: cdk.Construct, id: string, networkAcl: CfnNetworkAcl, egress: boolean) {
-        const rule = new CfnNetworkAclEntry(scope, id, {
+        const entry = new CfnNetworkAclEntry(scope, id, {
             networkAclId: networkAcl.ref,
             protocol: -1,
             ruleAction: 'allow',
@@ -136,7 +136,7 @@ export class NetworkAcl extends Resource {
             cidrBlock: '0.0.0.0/0'
         });
 
-        if (egress) rule.egress = true;
+        if (egress) entry.egress = true;
     }
 
     private createAssociation(scope: cdk.Construct, associationInfo: AssociationInfo, networkAcl: CfnNetworkAcl) {
