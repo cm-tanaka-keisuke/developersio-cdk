@@ -49,11 +49,11 @@ export class RouteTable extends Resource {
             }],
             associations: [
                 {
-                    id: 'AssociationPublic1a',
+                    id: 'RouteTableAssociationPublic1a',
                     subnetId: () => this.subnetPublic1a.ref
                 },
                 {
-                    id: 'AssociationPublic1c',
+                    id: 'RouteTableAssociationPublic1c',
                     subnetId: () => this.subnetPublic1c.ref
                 }
             ],
@@ -68,7 +68,7 @@ export class RouteTable extends Resource {
                 natGatewayId: () => this.natGateway1a.ref
             }],
             associations: [{
-                id: 'AssociationApp1a',
+                id: 'RouteTableAssociationApp1a',
                 subnetId: () => this.subnetApp1a.ref
             }],
             assign: routeTable => this.app1a = routeTable
@@ -82,7 +82,7 @@ export class RouteTable extends Resource {
                 natGatewayId: () => this.natGateway1c.ref
             }],
             associations: [{
-                id: 'AssociationApp1c',
+                id: 'RouteTableAssociationApp1c',
                 subnetId: () => this.subnetApp1c.ref
             }],
             assign: routeTable => this.app1c = routeTable
@@ -93,11 +93,11 @@ export class RouteTable extends Resource {
             routes: [],
             associations: [
                 {
-                    id: 'AssociationDb1a',
+                    id: 'RouteTableAssociationDb1a',
                     subnetId: () => this.subnetDb1a.ref
                 },
                 {
-                    id: 'AssociationDb1c',
+                    id: 'RouteTableAssociationDb1c',
                     subnetId: () => this.subnetDb1c.ref
                 }
             ],
