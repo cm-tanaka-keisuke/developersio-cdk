@@ -19,6 +19,7 @@
 | 11 | Elastic IP | `11.elastic-ip` | Elastic IP の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-11-elastic-ip/) | 2021/06/17 |
 | 12 | NAT ゲートウェイ | `12.nat-gateway` | NAT ゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-12-nat-gateway/) | 2021/06/21 |
 | 13 | ルートテーブル | `13.route-table` | ルートテーブルの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-13-route-table/) | 2021/06/24 |
+| 14 | ネットワーク ACL | `14.network-acl` | ネットワーク ACL の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-14-network-acl/) | 2021/06/28 |
 
 # Usage
 
@@ -60,8 +61,8 @@
 | 環境 | バージョン |
 | --- | --- |
 | macOS | 11.3.1 |
-| VS Code | 1.56.2 |
+| VS Code | 1.57.0 |
 | AWS CLI | 2.1.39 |
 | AWS CDK | 1.107.0 |
-| TypeScript | 4.2.4 |
+| TypeScript | 4.3.2 |
 | Node.js | v16.1.0 |
