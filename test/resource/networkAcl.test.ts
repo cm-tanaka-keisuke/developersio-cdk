@@ -27,7 +27,7 @@ test('NetworkAcl', () => {
         RuleAction: 'allow',
         RuleNumber: 100,
         CidrBlock: '0.0.0.0/0',
-        Egress: ABSENT
+        Egress: false
     }));
     expect(stack).to(countResourcesLike('AWS::EC2::NetworkAclEntry', 3, {
         NetworkAclId: anything(),
