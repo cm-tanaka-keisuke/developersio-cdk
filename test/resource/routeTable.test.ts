@@ -1,4 +1,4 @@
-import { expect, countResources, haveResource, anything } from '@aws-cdk/assert';
+import { expect, countResources, countResourcesLike, haveResource, anything } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as Devio from '../../lib/devio-stack';
 
@@ -25,19 +25,19 @@ test('RouteTable', () => {
     }));
 
     expect(stack).to(countResources('AWS::EC2::Route', 3));
-    expect(stack).to(haveResource('AWS::EC2::Route', {
+    expect(stack).to(countResourcesLike('AWS::EC2::Route', 1, {
         RouteTableId: anything(),
         DestinationCidrBlock: '0.0.0.0/0',
         GatewayId: anything()
     }));
-    expect(stack).to(haveResource('AWS::EC2::Route', {
+    expect(stack).to(countResourcesLike('AWS::EC2::Route', 2, {
         RouteTableId: anything(),
         DestinationCidrBlock: '0.0.0.0/0',
         NatGatewayId: anything()
     }));
 
     expect(stack).to(countResources('AWS::EC2::SubnetRouteTableAssociation', 6));
-    expect(stack).to(haveResource('AWS::EC2::SubnetRouteTableAssociation', {
+    expect(stack).to(countResourcesLike('AWS::EC2::SubnetRouteTableAssociation', 6, {
         RouteTableId: anything(),
         SubnetId: anything()
     }));

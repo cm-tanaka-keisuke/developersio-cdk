@@ -1,4 +1,4 @@
-import { expect, countResources, haveResource, anything } from '@aws-cdk/assert';
+import { expect, countResources, countResourcesLike, haveResource, anything, ABSENT } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as Devio from '../../lib/devio-stack';
 
@@ -21,14 +21,15 @@ test('NetworkAcl', () => {
     }));
 
     expect(stack).to(countResources('AWS::EC2::NetworkAclEntry', 6));
-    expect(stack).to(haveResource('AWS::EC2::NetworkAclEntry', {
+    expect(stack).to(countResourcesLike('AWS::EC2::NetworkAclEntry', 3, {
         NetworkAclId: anything(),
         Protocol: -1,
         RuleAction: 'allow',
         RuleNumber: 100,
-        CidrBlock: '0.0.0.0/0'
+        CidrBlock: '0.0.0.0/0',
+        Egress: ABSENT
     }));
-    expect(stack).to(haveResource('AWS::EC2::NetworkAclEntry', {
+    expect(stack).to(countResourcesLike('AWS::EC2::NetworkAclEntry', 3, {
         NetworkAclId: anything(),
         Protocol: -1,
         RuleAction: 'allow',
@@ -38,7 +39,7 @@ test('NetworkAcl', () => {
     }));
 
     expect(stack).to(countResources('AWS::EC2::SubnetNetworkAclAssociation', 6));
-    expect(stack).to(haveResource('AWS::EC2::SubnetNetworkAclAssociation', {
+    expect(stack).to(countResourcesLike('AWS::EC2::SubnetNetworkAclAssociation', 6, {
         NetworkAclId: anything(),
         SubnetId: anything()
     }));
