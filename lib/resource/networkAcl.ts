@@ -105,6 +105,13 @@ export class NetworkAcl extends Resource {
         for (const resourceInfo of this.resources) {
             const networkAcl = this.createNetworkAcl(scope, resourceInfo);
             resourceInfo.assign(networkAcl);
+
+            this.createEntry(scope, resourceInfo.entryIdInbound, networkAcl, false);
+            this.createEntry(scope, resourceInfo.entryIdOutbound, networkAcl, true);
+
+            for (const associationInfo of resourceInfo.associations) {
+                this.createAssociation(scope, associationInfo, networkAcl);
+            }
         }
     }
 
@@ -116,13 +123,6 @@ export class NetworkAcl extends Resource {
                 value: this.createResourceName(scope, resourceInfo.resourceName)
             }]
         });
-
-        this.createEntry(scope, resourceInfo.entryIdInbound, networkAcl, false);
-        this.createEntry(scope, resourceInfo.entryIdOutbound, networkAcl, true);
-
-        for (const associationInfo of resourceInfo.associations) {
-            this.createAssociation(scope, associationInfo, networkAcl);
-        }
 
         return networkAcl;
     }

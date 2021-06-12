@@ -134,6 +134,14 @@ export class RouteTable extends Resource {
         for (const resourceInfo of this.resources) {
             const routeTable = this.createRouteTable(scope, resourceInfo);
             resourceInfo.assign(routeTable);
+
+            for (const routeInfo of resourceInfo.routes) {
+                this.createRoute(scope, routeInfo, routeTable);
+            }
+
+            for (const associationInfo of resourceInfo.associations) {
+                this.createAssociation(scope, associationInfo, routeTable);
+            }
         }
     }
 
@@ -145,14 +153,6 @@ export class RouteTable extends Resource {
                 value: this.createResourceName(scope, resourceInfo.resourceName)
             }]
         });
-
-        for (const routeInfo of resourceInfo.routes) {
-            this.createRoute(scope, routeInfo, routeTable);
-        }
-
-        for (const associationInfo of resourceInfo.associations) {
-            this.createAssociation(scope, associationInfo, routeTable);
-        }
 
         return routeTable;
     }
