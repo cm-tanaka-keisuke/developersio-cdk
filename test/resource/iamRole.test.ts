@@ -21,7 +21,6 @@ test('IamRole', () => {
             'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore',
             'arn:aws:iam::aws:policy/AmazonRDSFullAccess'
         ],
-        Path: '/',
         RoleName: 'undefined-undefined-role-ec2'
     }));
     expect(stack).to(haveResourceLike('AWS::IAM::Role', {
@@ -37,14 +36,12 @@ test('IamRole', () => {
         ManagedPolicyArns: [
             'arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole'
         ],
-        Path: '/',
         RoleName: 'undefined-undefined-role-rds'
     }));
 
     expect(stack).to(countResources('AWS::IAM::InstanceProfile', 1));
     expect(stack).to(haveResource('AWS::IAM::InstanceProfile', {
         Roles: anything(),
-        InstanceProfileName: 'undefined-undefined-role-ec2',
-        Path: '/'
+        InstanceProfileName: 'undefined-undefined-role-ec2'
     }));
 });
