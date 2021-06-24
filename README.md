@@ -20,6 +20,7 @@
 | 12 | NAT ゲートウェイ | `12.nat-gateway` | NAT ゲートウェイの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-12-nat-gateway/) | 2021/06/21 |
 | 13 | ルートテーブル | `13.route-table` | ルートテーブルの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-13-route-table/) | 2021/06/24 |
 | 14 | ネットワーク ACL | `14.network-acl` | ネットワーク ACL の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-14-network-acl/) | 2021/06/28 |
+| 15 | IAM ロール | `15.iam-role` | IAM ロールの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-15-iam-role/) | 2021/07/01 |
 
 # Usage
 
@@ -61,8 +62,8 @@
 | 環境 | バージョン |
 | --- | --- |
 | macOS | 11.3.1 |
-| VS Code | 1.57.0 |
+| VS Code | 1.57.1 |
 | AWS CLI | 2.1.39 |
-| AWS CDK | 1.107.0 |
+| AWS CDK | 1.109.0 |
 | TypeScript | 4.3.2 |
 | Node.js | v16.1.0 |
