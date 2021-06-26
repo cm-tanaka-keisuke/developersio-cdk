@@ -1,4 +1,4 @@
-import { expect, countResources, countResourcesLike, haveResource, anything, ABSENT } from '@aws-cdk/assert';
+import { expect, countResources, countResourcesLike, haveResource, anything } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as Devio from '../../lib/devio-stack';
 
