@@ -24,8 +24,7 @@ export class IamRole extends Resource {
                 actions: ['sts:AssumeRole']
             },
             managedPolicyArns: [
-                'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore',
-                'arn:aws:iam::aws:policy/AmazonRDSFullAccess'
+                'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
             ],
             roleName: 'role-ec2',
             assign: role => this.ec2 = role
