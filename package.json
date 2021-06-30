@@ -22,10 +22,13 @@
   },
   "dependencies": {
     "@aws-cdk/aws-ec2": "^1.104.0",
+    "@aws-cdk/aws-elasticloadbalancingv2": "^1.110.1",
     "@aws-cdk/core": "1.104.0",
     "source-map-support": "^0.5.16"
   },
   "jest": {
-    "moduleFileExtensions": ["js"]
+    "moduleFileExtensions": [
+      "js"
+    ]
   }
 }
