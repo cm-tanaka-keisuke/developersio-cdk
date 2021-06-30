@@ -14,7 +14,8 @@ test('Ec2', () => {
         InstanceType: 't2.micro',
         SecurityGroupIds: anything(),
         SubnetId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-ec2-1a' }]
+        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-ec2-1a' }],
+        UserData: anything()
     }));
     expect(stack).to(haveResource('AWS::EC2::Instance', {
         AvailabilityZone: 'ap-northeast-1c',
@@ -23,6 +24,7 @@ test('Ec2', () => {
         InstanceType: 't2.micro',
         SecurityGroupIds: anything(),
         SubnetId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-ec2-1c' }]
+        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-ec2-1c' }],
+        UserData: anything()
     }));
 });
