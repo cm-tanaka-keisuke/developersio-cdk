@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import { CfnListener, CfnLoadBalancer, CfnTargetGroup } from '@aws-cdk/aws-elasticloadbalancingv2';
+import { CfnLoadBalancer, CfnTargetGroup, CfnListener } from '@aws-cdk/aws-elasticloadbalancingv2';
 import { CfnVPC, CfnSubnet, CfnSecurityGroup, CfnInstance } from '@aws-cdk/aws-ec2';
 import { Resource } from './abstract/resource';
 
