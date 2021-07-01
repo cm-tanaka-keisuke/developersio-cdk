@@ -23,6 +23,7 @@
 | 15 | IAM ロール | `15.iam-role` | IAM ロールの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-15-iam-role/) | 2021/07/01 |
 | 16 | セキュリティグループ | `16.security-group` | セキュリティグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-16-security-group/) | 2021/07/05 |
 | 17 | EC2 | `17.ec2` | EC2 の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-17-ec2/) | 2021/07/07 |
+| 18 | ALB | `18.alb` | ALB の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-18-alb/) | 2021/07/12 |
 
 # Usage
 
@@ -66,6 +67,6 @@
 | macOS | 11.3.1 |
 | VS Code | 1.57.1 |
 | AWS CLI | 2.1.39 |
-| AWS CDK | 1.110.0 |
+| AWS CDK | 1.110.1 |
 | TypeScript | 4.3.2 |
 | Node.js | v16.1.0 |
