@@ -24,7 +24,7 @@ export class SecretsManager extends Resource {
         id: 'SecretRdsCluster',
         description: 'for RDS cluster',
         generateSecretString: {
-            excludeCharacters: '"@/\\',
+            excludeCharacters: '"@/\\\'',
             generateStringKey: OSecretKey.MasterUserPassword,
             passwordLength: 16,
             secretStringTemplate: `{"${OSecretKey.MasterUsername}": "${SecretsManager.rdsClusterMasterUsername}"}`

@@ -10,7 +10,7 @@ test('SecretsManager', () => {
     expect(stack).to(haveResource('AWS::SecretsManager::Secret', {
         Description: 'for RDS cluster',
         GenerateSecretString: {
-            ExcludeCharacters: '"@/\\',
+            ExcludeCharacters: '"@/\\\'',
             GenerateStringKey: 'MasterUserPassword',
             PasswordLength: 16,
             SecretStringTemplate: '{"MasterUsername": "admin"}'
