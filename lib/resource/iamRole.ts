@@ -6,7 +6,7 @@ interface ResourceInfo {
     readonly id: string;
     readonly policyStatementProps: PolicyStatementProps;
     readonly managedPolicyArns: string[];
-    readonly roleName: string;
+    readonly resourceName: string;
     readonly assign: (role: CfnRole) => void;
 }
 
@@ -26,7 +26,7 @@ export class IamRole extends Resource {
             managedPolicyArns: [
                 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
             ],
-            roleName: 'role-ec2',
+            resourceName: 'role-ec2',
             assign: role => this.ec2 = role
         },
         {
@@ -39,7 +39,7 @@ export class IamRole extends Resource {
             managedPolicyArns: [
                 'arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole'
             ],
-            roleName: 'role-rds',
+            resourceName: 'role-rds',
             assign: role => this.rds = role
         }
     ];
@@ -70,7 +70,7 @@ export class IamRole extends Resource {
         const role = new CfnRole(scope, resourceInfo.id, {
             assumeRolePolicyDocument: policyDocument,
             managedPolicyArns: resourceInfo.managedPolicyArns,
-            roleName: this.createResourceName(scope, resourceInfo.roleName)
+            roleName: this.createResourceName(scope, resourceInfo.resourceName)
         });
 
         return role;

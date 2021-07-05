@@ -12,7 +12,7 @@ interface ResourceInfo {
     readonly id: string;
     readonly description: string;
     readonly generateSecretString: CfnSecret.GenerateSecretStringProperty;
-    readonly name: string;
+    readonly resourceName: string;
     readonly assign: (secret: CfnSecret) => void;
 }
 
@@ -29,7 +29,7 @@ export class SecretsManager extends Resource {
             passwordLength: 16,
             secretStringTemplate: `{"${OSecretKey.MasterUsername}": "${SecretsManager.rdsClusterMasterUsername}"}`
         },
-        name: 'secrets-rds-cluster',
+        resourceName: 'secrets-rds-cluster',
         assign: secret => this.rdsCluster = secret
     }];
 
@@ -52,7 +52,7 @@ export class SecretsManager extends Resource {
         const secret = new CfnSecret(scope, resourceInfo.id, {
             description: resourceInfo.description,
             generateSecretString: resourceInfo.generateSecretString,
-            name: this.createResourceName(scope, resourceInfo.name)
+            name: this.createResourceName(scope, resourceInfo.resourceName)
         });
 
         return secret;
