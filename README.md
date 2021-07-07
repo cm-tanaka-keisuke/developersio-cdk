@@ -25,6 +25,7 @@
 | 17 | EC2 | `17.ec2` | EC2 の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-17-ec2/) | 2021/07/07 |
 | 18 | ALB | `18.alb` | ALB の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-18-alb/) | 2021/07/12 |
 | 19 | Secrets Manager | `19.secrets-manager` | Secrets Manager の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-19-secrets-manager/) | 2021/07/15 |
+| 20 | RDS サブネットグループ | `20.rds-subnet-group` | RDS サブネットグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-20-rds-subnet-group/) | 2021/07/19 |
 
 # Usage
 
@@ -68,6 +69,6 @@
 | macOS | 11.3.1 |
 | VS Code | 1.57.1 |
 | AWS CLI | 2.1.39 |
-| AWS CDK | 1.110.1 |
+| AWS CDK | 1.111.0 |
 | TypeScript | 4.3.2 |
 | Node.js | v16.1.0 |
