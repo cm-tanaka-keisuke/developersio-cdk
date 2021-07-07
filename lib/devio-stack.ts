@@ -11,6 +11,7 @@ import { SecurityGroup } from './resource/securityGroup';
 import { Ec2 } from './resource/ec2';
 import { Alb } from './resource/alb';
 import { SecretsManager } from './resource/secretsManager';
+import { Rds } from './resource/rds';
 
 export class DevioStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -99,5 +100,12 @@ export class DevioStack extends cdk.Stack {
     // Secrets Manager
     const secretsManager = new SecretsManager();
     secretsManager.createResources(this);
+
+    // RDS
+    const rds = new Rds(
+      subnet.db1a,
+      subnet.db1c
+    );
+    rds.createResources(this);
   }
 }
