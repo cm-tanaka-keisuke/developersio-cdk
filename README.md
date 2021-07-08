@@ -26,6 +26,7 @@
 | 18 | ALB | `18.alb` | ALB の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-18-alb/) | 2021/07/12 |
 | 19 | Secrets Manager | `19.secrets-manager` | Secrets Manager の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-19-secrets-manager/) | 2021/07/15 |
 | 20 | RDS サブネットグループ | `20.rds-subnet-group` | RDS サブネットグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-20-rds-subnet-group/) | 2021/07/19 |
+| 21 | RDS パラメータグループ | `21.rds-parameter-group` | RDS パラメータグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-21-rds-parameter-group/) | 2021/07/22 |
 
 # Usage
 
