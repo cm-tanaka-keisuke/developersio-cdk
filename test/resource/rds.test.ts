@@ -19,4 +19,10 @@ test('Rds', () => {
         Family: 'aurora-mysql5.7',
         Parameters: { time_zone: 'UTC' }
     }));
+
+    expect(stack).to(countResources('AWS::RDS::DBParameterGroup', 1));
+    expect(stack).to(haveResource('AWS::RDS::DBParameterGroup', {
+        Description: 'Parameter Group for RDS',
+        Family: 'aurora-mysql5.7'
+    }));
 });
