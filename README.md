@@ -27,6 +27,7 @@
 | 19 | Secrets Manager | `19.secrets-manager` | Secrets Manager の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-19-secrets-manager/) | 2021/07/15 |
 | 20 | RDS サブネットグループ | `20.rds-subnet-group` | RDS サブネットグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-20-rds-subnet-group/) | 2021/07/19 |
 | 21 | RDS パラメータグループ | `21.rds-parameter-group` | RDS パラメータグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-21-rds-parameter-group/) | 2021/07/22 |
+| 22 | RDS クラスター | `22.rds-cluster` | RDS クラスターの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-22-rds-cluster/) | 2021/07/26 |
 
 # Usage
 
@@ -68,7 +69,7 @@
 | 環境 | バージョン |
 | --- | --- |
 | macOS | 11.3.1 |
-| VS Code | 1.57.1 |
+| VS Code | 1.58.0 |
 | AWS CLI | 2.1.39 |
 | AWS CDK | 1.111.0 |
 | TypeScript | 4.3.2 |
