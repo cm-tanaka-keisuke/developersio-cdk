@@ -23,17 +23,17 @@ export class Rds extends Resource {
     }
 
     private createSubnetGroup(scope: cdk.Construct): CfnDBSubnetGroup {
-        const subnetGroup = new CfnDBSubnetGroup(scope, 'SubnetGroupRds', {
+        const subnetGroup = new CfnDBSubnetGroup(scope, 'RdsDbSubnetGroup', {
             dbSubnetGroupDescription: 'Subnet Group for RDS',
             subnetIds: [this.subnetDb1a.ref, this.subnetDb1c.ref],
-            dbSubnetGroupName: this.createResourceName(scope, 'sng-rds')
+            dbSubnetGroupName: this.createResourceName(scope, 'rds-sng')
         });
 
         return subnetGroup;
     }
 
     private createClusterParameterGroup(scope: cdk.Construct): CfnDBClusterParameterGroup {
-        const clusterParameterGroup = new CfnDBClusterParameterGroup(scope, 'ClusterParameterGroupRds', {
+        const clusterParameterGroup = new CfnDBClusterParameterGroup(scope, 'RdsDbClusterParameterGroup', {
             description: 'Cluster Parameter Group for RDS',
             family: 'aurora-mysql5.7',
             parameters: { time_zone: 'UTC' }
@@ -43,7 +43,7 @@ export class Rds extends Resource {
     }
 
     private createParameterGroup(scope: cdk.Construct): CfnDBParameterGroup {
-        const parameterGroup = new CfnDBParameterGroup(scope, 'ParameterGroupRds', {
+        const parameterGroup = new CfnDBParameterGroup(scope, 'RdsDbParameterGroup', {
             description: 'Parameter Group for RDS',
             family: 'aurora-mysql5.7'
         });

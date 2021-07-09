@@ -10,7 +10,7 @@ test('Rds', () => {
     expect(stack).to(haveResource('AWS::RDS::DBSubnetGroup', {
         DBSubnetGroupDescription: 'Subnet Group for RDS',
         SubnetIds: anything(),
-        DBSubnetGroupName: 'undefined-undefined-sng-rds'
+        DBSubnetGroupName: 'undefined-undefined-rds-sng'
     }));
 
     expect(stack).to(countResources('AWS::RDS::DBClusterParameterGroup', 1));
