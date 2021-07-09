@@ -17,7 +17,7 @@ interface ResourceInfo {
 }
 
 export class SecretsManager extends Resource {
-    public rdsCluster: CfnSecret;
+    public secretRdsCluster: CfnSecret;
 
     private static readonly rdsClusterMasterUsername = 'admin';
     private readonly resources: ResourceInfo[] = [{
@@ -30,7 +30,7 @@ export class SecretsManager extends Resource {
             secretStringTemplate: `{"${OSecretKey.MasterUsername}": "${SecretsManager.rdsClusterMasterUsername}"}`
         },
         resourceName: 'secrets-rds-cluster',
-        assign: secret => this.rdsCluster = secret
+        assign: secret => this.secretRdsCluster = secret
     }];
 
     constructor() {
