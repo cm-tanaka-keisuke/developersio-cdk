@@ -11,19 +11,19 @@ test('SecurityGroup', () => {
         GroupDescription: 'for ALB',
         GroupName: 'undefined-undefined-sg-alb',
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-sg-alb' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-sg-alb' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::SecurityGroup', {
         GroupDescription: 'for EC2',
         GroupName: 'undefined-undefined-sg-ec2',
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-sg-ec2' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-sg-ec2' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::SecurityGroup', {
         GroupDescription: 'for RDS',
         GroupName: 'undefined-undefined-sg-rds',
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-sg-rds' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-sg-rds' }]
     }));
 
     expect(stack).to(countResources('AWS::EC2::SecurityGroupIngress', 4));

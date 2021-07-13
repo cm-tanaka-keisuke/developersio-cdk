@@ -10,11 +10,11 @@ test('NatGateway', () => {
     expect(stack).to(haveResource('AWS::EC2::NatGateway', {
         AllocationId: anything(),
         SubnetId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-ngw-1a' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-ngw-1a' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::NatGateway', {
         AllocationId: anything(),
         SubnetId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-ngw-1c' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-ngw-1c' }]
     }));
 });

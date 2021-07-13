@@ -9,19 +9,19 @@ test('RouteTable', () => {
     expect(stack).to(countResources('AWS::EC2::RouteTable', 4));
     expect(stack).to(haveResource('AWS::EC2::RouteTable', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-rtb-public' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-rtb-public' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::RouteTable', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-rtb-app-1a' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-rtb-app-1a' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::RouteTable', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-rtb-app-1c' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-rtb-app-1c' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::RouteTable', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-rtb-db' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-rtb-db' }]
     }));
 
     expect(stack).to(countResources('AWS::EC2::Route', 3));

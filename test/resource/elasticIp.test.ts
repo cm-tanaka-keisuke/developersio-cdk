@@ -9,10 +9,10 @@ test('ElasticIp', () => {
     expect(stack).to(countResources('AWS::EC2::EIP', 2));
     expect(stack).to(haveResource('AWS::EC2::EIP', {
         Domain: 'vpc',
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-eip-ngw-1a' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-eip-ngw-1a' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::EIP', {
         Domain: 'vpc',
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-eip-ngw-1c' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-eip-ngw-1c' }]
     }));
 });

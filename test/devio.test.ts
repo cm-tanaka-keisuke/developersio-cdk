@@ -12,6 +12,6 @@ test('Context', () => {
   const stack = new Devio.DevioStack(app, 'DevioStack');
 
   expect(stack).to(haveResource('AWS::EC2::VPC', {
-    Tags: [{ 'Key': 'Name', 'Value': 'starwars-prd-vpc' }]
+    Tags: [{ Key: 'Name', Value: 'starwars-prd-vpc' }]
   }));
 });

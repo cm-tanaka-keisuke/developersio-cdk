@@ -9,15 +9,15 @@ test('NetworkAcl', () => {
     expect(stack).to(countResources('AWS::EC2::NetworkAcl', 3));
     expect(stack).to(haveResource('AWS::EC2::NetworkAcl', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-nacl-public' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-nacl-public' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::NetworkAcl', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-nacl-app' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-nacl-app' }]
     }));
     expect(stack).to(haveResource('AWS::EC2::NetworkAcl', {
         VpcId: anything(),
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-nacl-db' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-nacl-db' }]
     }));
 
     expect(stack).to(countResources('AWS::EC2::NetworkAclEntry', 6));

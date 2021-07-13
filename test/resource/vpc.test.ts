@@ -9,6 +9,6 @@ test('Vpc', () => {
     expect(stack).to(countResources('AWS::EC2::VPC', 1));
     expect(stack).to(haveResource('AWS::EC2::VPC', {
         CidrBlock: '10.0.0.0/16',
-        Tags: [{ 'Key': 'Name', 'Value': 'undefined-undefined-vpc' }]
+        Tags: [{ Key: 'Name', Value: 'undefined-undefined-vpc' }]
     }));
 });
