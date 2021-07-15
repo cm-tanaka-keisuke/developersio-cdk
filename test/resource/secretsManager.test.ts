@@ -15,6 +15,6 @@ test('SecretsManager', () => {
             PasswordLength: 16,
             SecretStringTemplate: '{"MasterUsername": "admin"}'
         },
-        Name: 'undefined-undefined-secrets-rds-cluster'
+        Name: 'undefined-undefined-secret-rds-cluster'
     }));
 });

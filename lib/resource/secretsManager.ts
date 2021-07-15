@@ -29,7 +29,7 @@ export class SecretsManager extends Resource {
             passwordLength: 16,
             secretStringTemplate: `{"${OSecretKey.MasterUsername}": "${SecretsManager.rdsClusterMasterUsername}"}`
         },
-        resourceName: 'secrets-rds-cluster',
+        resourceName: 'secret-rds-cluster',
         assign: secret => this.secretRdsCluster = secret
     }];
 
