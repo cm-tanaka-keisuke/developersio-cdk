@@ -45,4 +45,36 @@ test('Rds', () => {
         StorageEncrypted: true,
         VpcSecurityGroupIds: anything()
     }));
+
+    expect(stack).to(countResources('AWS::RDS::DBInstance', 2));
+    expect(stack).to(haveResource('AWS::RDS::DBInstance', {
+        DBInstanceClass: 'db.r5.large',
+        AutoMinorVersionUpgrade: false,
+        AvailabilityZone: 'ap-northeast-1a',
+        DBClusterIdentifier: anything(),
+        DBInstanceIdentifier: 'undefined-undefined-rds-instance-1a',
+        DBParameterGroupName: anything(),
+        DBSubnetGroupName: anything(),
+        EnablePerformanceInsights: true,
+        Engine: 'aurora-mysql',
+        MonitoringInterval: 60,
+        MonitoringRoleArn: anything(),
+        PerformanceInsightsRetentionPeriod: 7,
+        PreferredMaintenanceWindow: 'sun:20:00-sun:20:30',
+    }));
+    expect(stack).to(haveResource('AWS::RDS::DBInstance', {
+        DBInstanceClass: 'db.r5.large',
+        AutoMinorVersionUpgrade: false,
+        AvailabilityZone: 'ap-northeast-1c',
+        DBClusterIdentifier: anything(),
+        DBInstanceIdentifier: 'undefined-undefined-rds-instance-1c',
+        DBParameterGroupName: anything(),
+        DBSubnetGroupName: anything(),
+        EnablePerformanceInsights: true,
+        Engine: 'aurora-mysql',
+        MonitoringInterval: 60,
+        MonitoringRoleArn: anything(),
+        PerformanceInsightsRetentionPeriod: 7,
+        PreferredMaintenanceWindow: 'sun:20:30-sun:21:00',
+    }));
 });
