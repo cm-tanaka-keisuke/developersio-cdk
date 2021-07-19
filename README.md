@@ -28,6 +28,7 @@
 | 20 | RDS サブネットグループ | `20.rds-subnet-group` | RDS サブネットグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-20-rds-subnet-group/) | 2021/07/19 |
 | 21 | RDS パラメータグループ | `21.rds-parameter-group` | RDS パラメータグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-21-rds-parameter-group/) | 2021/07/22 |
 | 22 | RDS クラスター | `22.rds-cluster` | RDS クラスターの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-22-rds-cluster/) | 2021/07/26 |
+| 23 | RDS インスタンス | `23.rds-instance` | RDS インスタンスの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-23-rds-instance/) | 2021/07/29|
 
 # Usage
 
