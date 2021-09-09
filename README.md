@@ -28,7 +28,8 @@
 | 20 | RDS サブネットグループ | `20.rds-subnet-group` | RDS サブネットグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-20-rds-subnet-group/) | 2021/07/19 |
 | 21 | RDS パラメータグループ | `21.rds-parameter-group` | RDS パラメータグループの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-21-rds-parameter-group/) | 2021/07/22 |
 | 22 | RDS クラスター | `22.rds-cluster` | RDS クラスターの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-22-rds-cluster/) | 2021/07/26 |
-| 23 | RDS インスタンス | `23.rds-instance` | RDS インスタンスの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-23-rds-instance/) | 2021/07/29|
+| 23 | RDS インスタンス | `23.rds-instance` | RDS インスタンスの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-23-rds-instance/) | 2021/07/29 |
+| 24 | デバッグ | `24.debug` | デバッグ方法のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-24-debug/) | 2021/09/09 |
 
 # Usage
 
@@ -70,8 +71,8 @@
 | 環境 | バージョン |
 | --- | --- |
 | macOS | 11.3.1 |
-| VS Code | 1.58.0 |
-| AWS CLI | 2.1.39 |
-| AWS CDK | 1.111.0 |
-| TypeScript | 4.3.2 |
-| Node.js | v16.1.0 |
+| VS Code | 1.60.0 |
+| AWS CLI | 2.2.25 |
+| AWS CDK | 1.122.0 |
+| TypeScript | 4.4.2 |
+| Node.js | v14.17.4 |
