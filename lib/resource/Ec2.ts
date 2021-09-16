@@ -75,6 +75,11 @@ export class Ec2 extends Resource {
             userData: fs.readFileSync(Ec2.userDataFilePath, 'base64')
         });
 
+        const keyName = scope.node.tryGetContext('keyName');
+        if (keyName) {
+            instance.keyName = keyName;
+        }
+
         return instance;
     }
 }
