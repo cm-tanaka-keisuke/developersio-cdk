@@ -30,6 +30,7 @@
 | 22 | RDS クラスター | `22.rds-cluster` | RDS クラスターの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-22-rds-cluster/) | 2021/07/26 |
 | 23 | RDS インスタンス | `23.rds-instance` | RDS インスタンスの実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-23-rds-instance/) | 2021/07/29 |
 | 24 | デバッグ | `24.debug` | デバッグ方法のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-24-debug/) | 2021/09/09 |
+| 25 | Session Manager で SSH 接続 | `25.session-manager-ssh` | SSM の Session Manager を利用した、ローカルマシンから EC2 インスタンスへの SSH 接続方法 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-25-session-manager-ssh/) | 2021/09/16 |
 
 # Usage
 
