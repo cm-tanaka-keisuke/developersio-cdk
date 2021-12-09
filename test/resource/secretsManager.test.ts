@@ -1,13 +1,14 @@
-import { expect, countResources, haveResource } from '@aws-cdk/assert';
-import * as cdk from '@aws-cdk/core';
+import { App } from 'aws-cdk-lib';
+import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as Devio from '../../lib/devio-stack';
 
 test('SecretsManager', () => {
-    const app = new cdk.App();
+    const app = new App();
     const stack = new Devio.DevioStack(app, 'DevioStack');
+    const template = Template.fromStack(stack);
 
-    expect(stack).to(countResources('AWS::SecretsManager::Secret', 1));
-    expect(stack).to(haveResource('AWS::SecretsManager::Secret', {
+    template.resourceCountIs('AWS::SecretsManager::Secret', 1);
+    template.hasResourceProperties('AWS::SecretsManager::Secret', {
         Description: 'for RDS cluster',
         GenerateSecretString: {
             ExcludeCharacters: '"@/\\\'',
@@ -16,5 +17,5 @@ test('SecretsManager', () => {
             SecretStringTemplate: '{"MasterUsername": "admin"}'
         },
         Name: 'undefined-undefined-secret-rds-cluster'
-    }));
+    });
 });

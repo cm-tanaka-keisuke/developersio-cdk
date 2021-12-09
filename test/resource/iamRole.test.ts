@@ -1,18 +1,19 @@
-import { expect, countResources, haveResource, haveResourceLike, anything } from '@aws-cdk/assert';
-import * as cdk from '@aws-cdk/core';
+import { App } from 'aws-cdk-lib';
+import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as Devio from '../../lib/devio-stack';
 
 test('IamRole', () => {
-    const app = new cdk.App();
+    const app = new App();
     const stack = new Devio.DevioStack(app, 'DevioStack');
+    const template = Template.fromStack(stack);
 
-    expect(stack).to(countResources('AWS::IAM::Role', 2));
-    expect(stack).to(haveResourceLike('AWS::IAM::Role', {
+    template.resourceCountIs('AWS::IAM::Role', 2);
+    template.hasResourceProperties('AWS::IAM::Role', {
         AssumeRolePolicyDocument: {
             Statement: [{
                 Effect: 'Allow',
                 Principal: {
-                    Service: anything()
+                    Service: Match.anyValue()
                 },
                 Action: 'sts:AssumeRole'
             }]
@@ -21,8 +22,8 @@ test('IamRole', () => {
             'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
         ],
         RoleName: 'undefined-undefined-role-ec2'
-    }));
-    expect(stack).to(haveResourceLike('AWS::IAM::Role', {
+    });
+    template.hasResourceProperties('AWS::IAM::Role', {
         AssumeRolePolicyDocument: {
             Statement: [{
                 Effect: 'Allow',
@@ -36,11 +37,11 @@ test('IamRole', () => {
             'arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole'
         ],
         RoleName: 'undefined-undefined-role-rds'
-    }));
+    });
 
-    expect(stack).to(countResources('AWS::IAM::InstanceProfile', 1));
-    expect(stack).to(haveResource('AWS::IAM::InstanceProfile', {
-        Roles: anything(),
+    template.resourceCountIs('AWS::IAM::InstanceProfile', 1);
+    template.hasResourceProperties('AWS::IAM::InstanceProfile', {
+        Roles: Match.anyValue(),
         InstanceProfileName: 'undefined-undefined-role-ec2'
-    }));
+    });
 });
