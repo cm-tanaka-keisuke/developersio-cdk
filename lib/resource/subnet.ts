@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnSubnet, CfnVPC } from '@aws-cdk/aws-ec2';
+import { Construct } from 'constructs';
+import { CfnSubnet, CfnVPC } from 'aws-cdk-lib/aws-ec2';
 import { Resource } from './abstract/resource';
 
 interface ResourceInfo {
@@ -69,14 +69,14 @@ export class Subnet extends Resource {
         this.vpc = vpc;
     };
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         for (const resourceInfo of this.resources) {
             const subnet = this.createSubnet(scope, resourceInfo);
             resourceInfo.assign(subnet);
         }
     }
 
-    private createSubnet(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnSubnet {
+    private createSubnet(scope: Construct, resourceInfo: ResourceInfo): CfnSubnet {
         const subnet = new CfnSubnet(scope, resourceInfo.id, {
             cidrBlock: resourceInfo.cidrBlock,
             vpcId: this.vpc.ref,

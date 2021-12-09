@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnRouteTable, CfnRoute, CfnSubnetRouteTableAssociation, CfnVPC, CfnSubnet, CfnInternetGateway, CfnNatGateway } from '@aws-cdk/aws-ec2';
+import { Construct } from 'constructs';
+import { CfnRouteTable, CfnRoute, CfnSubnetRouteTableAssociation, CfnVPC, CfnSubnet, CfnInternetGateway, CfnNatGateway } from 'aws-cdk-lib/aws-ec2';
 import { Resource } from './abstract/resource';
 
 interface RouteInfo {
@@ -130,7 +130,7 @@ export class RouteTable extends Resource {
         this.natGateway1c = natGateway1c;
     }
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         for (const resourceInfo of this.resources) {
             const routeTable = this.createRouteTable(scope, resourceInfo);
             resourceInfo.assign(routeTable);
@@ -145,7 +145,7 @@ export class RouteTable extends Resource {
         }
     }
 
-    private createRouteTable(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnRouteTable {
+    private createRouteTable(scope: Construct, resourceInfo: ResourceInfo): CfnRouteTable {
         const routeTable = new CfnRouteTable(scope, resourceInfo.id, {
             vpcId: this.vpc.ref,
             tags: [{
@@ -157,7 +157,7 @@ export class RouteTable extends Resource {
         return routeTable;
     }
 
-    private createRoute(scope: cdk.Construct, routeInfo: RouteInfo, routeTable: CfnRouteTable) {
+    private createRoute(scope: Construct, routeInfo: RouteInfo, routeTable: CfnRouteTable) {
         const route = new CfnRoute(scope, routeInfo.id, {
             routeTableId: routeTable.ref,
             destinationCidrBlock: routeInfo.destinationCidrBlock
@@ -170,7 +170,7 @@ export class RouteTable extends Resource {
         }
     }
 
-    private createAssociation(scope: cdk.Construct, associationInfo: AssociationInfo, routeTable: CfnRouteTable) {
+    private createAssociation(scope: Construct, associationInfo: AssociationInfo, routeTable: CfnRouteTable) {
         new CfnSubnetRouteTableAssociation(scope, associationInfo.id, {
             routeTableId: routeTable.ref,
             subnetId: associationInfo.subnetId()

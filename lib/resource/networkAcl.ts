@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnNetworkAcl, CfnNetworkAclEntry, CfnSubnetNetworkAclAssociation, CfnVPC, CfnSubnet } from '@aws-cdk/aws-ec2';
+import { Construct } from 'constructs';
+import { CfnNetworkAcl, CfnNetworkAclEntry, CfnSubnetNetworkAclAssociation, CfnVPC, CfnSubnet } from 'aws-cdk-lib/aws-ec2';
 import { Resource } from './abstract/resource';
 
 interface AssociationInfo {
@@ -101,7 +101,7 @@ export class NetworkAcl extends Resource {
         this.subnetDb1c = subnetDb1c;
     }
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         for (const resourceInfo of this.resources) {
             const networkAcl = this.createNetworkAcl(scope, resourceInfo);
             resourceInfo.assign(networkAcl);
@@ -115,7 +115,7 @@ export class NetworkAcl extends Resource {
         }
     }
 
-    private createNetworkAcl(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnNetworkAcl {
+    private createNetworkAcl(scope: Construct, resourceInfo: ResourceInfo): CfnNetworkAcl {
         const networkAcl = new CfnNetworkAcl(scope, resourceInfo.id, {
             vpcId: this.vpc.ref,
             tags: [{
@@ -127,7 +127,7 @@ export class NetworkAcl extends Resource {
         return networkAcl;
     }
 
-    private createEntry(scope: cdk.Construct, id: string, networkAcl: CfnNetworkAcl, egress: boolean) {
+    private createEntry(scope: Construct, id: string, networkAcl: CfnNetworkAcl, egress: boolean) {
         new CfnNetworkAclEntry(scope, id, {
             networkAclId: networkAcl.ref,
             protocol: -1,
@@ -138,7 +138,7 @@ export class NetworkAcl extends Resource {
         });
     }
 
-    private createAssociation(scope: cdk.Construct, associationInfo: AssociationInfo, networkAcl: CfnNetworkAcl) {
+    private createAssociation(scope: Construct, associationInfo: AssociationInfo, networkAcl: CfnNetworkAcl) {
         new CfnSubnetNetworkAclAssociation(scope, associationInfo.id, {
             networkAclId: networkAcl.ref,
             subnetId: associationInfo.subnetId()

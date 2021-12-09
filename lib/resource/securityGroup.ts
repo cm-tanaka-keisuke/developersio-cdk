@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnSecurityGroup, CfnSecurityGroupIngress, CfnSecurityGroupIngressProps, CfnVPC } from '@aws-cdk/aws-ec2';
+import { Construct } from 'constructs';
+import { CfnSecurityGroup, CfnSecurityGroupIngress, CfnSecurityGroupIngressProps, CfnVPC } from 'aws-cdk-lib/aws-ec2';
 import { Resource } from './abstract/resource';
 
 interface IngressInfo {
@@ -95,7 +95,7 @@ export class SecurityGroup extends Resource {
         this.vpc = vpc;
     };
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         for (const resourceInfo of this.resources) {
             const securityGroup = this.createSecurityGroup(scope, resourceInfo);
             resourceInfo.assign(securityGroup);
@@ -104,7 +104,7 @@ export class SecurityGroup extends Resource {
         }
     }
 
-    private createSecurityGroup(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnSecurityGroup {
+    private createSecurityGroup(scope: Construct, resourceInfo: ResourceInfo): CfnSecurityGroup {
         const resourceName = this.createResourceName(scope, resourceInfo.resourceName);
         const securityGroup = new CfnSecurityGroup(scope, resourceInfo.id, {
             groupDescription: resourceInfo.groupDescription,
@@ -119,7 +119,7 @@ export class SecurityGroup extends Resource {
         return securityGroup;
     }
 
-    private createSecurityGroupIngress(scope: cdk.Construct, resourceInfo: ResourceInfo) {
+    private createSecurityGroupIngress(scope: Construct, resourceInfo: ResourceInfo) {
         for (const ingress of resourceInfo.ingresses) {
             const securityGroupIngress = new CfnSecurityGroupIngress(scope, ingress.id, ingress.securityGroupIngressProps);
             securityGroupIngress.groupId = ingress.groupId();

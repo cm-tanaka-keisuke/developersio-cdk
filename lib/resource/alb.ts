@@ -1,6 +1,6 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnLoadBalancer, CfnTargetGroup, CfnListener } from '@aws-cdk/aws-elasticloadbalancingv2';
-import { CfnVPC, CfnSubnet, CfnSecurityGroup, CfnInstance } from '@aws-cdk/aws-ec2';
+import { Construct } from 'constructs';
+import { CfnLoadBalancer, CfnTargetGroup, CfnListener } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import { CfnVPC, CfnSubnet, CfnSecurityGroup, CfnInstance } from 'aws-cdk-lib/aws-ec2';
 import { Resource } from './abstract/resource';
 
 export class Alb extends Resource {
@@ -30,13 +30,13 @@ export class Alb extends Resource {
         this.ec2Instance1c = ec2Instance1c;
     };
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         this.loadBalancer = this.createLoadBalancer(scope);
         const targetGroup = this.createTargetGroup(scope);
         this.createListener(scope, this.loadBalancer, targetGroup);
     }
 
-    private createLoadBalancer(scope: cdk.Construct): CfnLoadBalancer {
+    private createLoadBalancer(scope: Construct): CfnLoadBalancer {
         const loadBalancer = new CfnLoadBalancer(scope, 'Alb', {
             ipAddressType: 'ipv4',
             name: this.createResourceName(scope, 'alb'),
@@ -49,7 +49,7 @@ export class Alb extends Resource {
         return loadBalancer;
     }
 
-    private createTargetGroup(scope: cdk.Construct): CfnTargetGroup {
+    private createTargetGroup(scope: Construct): CfnTargetGroup {
         const targetGroup = new CfnTargetGroup(scope, 'AlbTargetGroup', {
             name: this.createResourceName(scope, 'tg'),
             port: 80,
@@ -69,7 +69,7 @@ export class Alb extends Resource {
         return targetGroup;
     }
 
-    private createListener(scope: cdk.Construct, loadBalancer: CfnLoadBalancer, targetGroup: CfnTargetGroup) {
+    private createListener(scope: Construct, loadBalancer: CfnLoadBalancer, targetGroup: CfnTargetGroup) {
         new CfnListener(scope, 'AlbListener', {
             defaultActions: [{
                 type: 'forward',

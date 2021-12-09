@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnEIP } from '@aws-cdk/aws-ec2';
+import { Construct } from 'constructs';
+import { CfnEIP } from 'aws-cdk-lib/aws-ec2';
 import { Resource } from './abstract/resource';
 
 interface ResourceInfo {
@@ -29,14 +29,14 @@ export class ElasticIp extends Resource {
         super();
     }
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         for (const resourceInfo of this.resources) {
             const elasticIp = this.createElasticIp(scope, resourceInfo);
             resourceInfo.assign(elasticIp);
         }
     }
 
-    private createElasticIp(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnEIP {
+    private createElasticIp(scope: Construct, resourceInfo: ResourceInfo): CfnEIP {
         const elasticIp = new CfnEIP(scope, resourceInfo.id, {
             domain: 'vpc',
             tags: [{

@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { CfnSecret } from '@aws-cdk/aws-secretsmanager';
+import { Construct } from 'constructs';
+import { CfnSecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { Resource } from './abstract/resource';
 
 export const OSecretKey = {
@@ -37,7 +37,7 @@ export class SecretsManager extends Resource {
         super();
     };
 
-    createResources(scope: cdk.Construct) {
+    createResources(scope: Construct) {
         for (const resourceInfo of this.resources) {
             const secret = this.createSecret(scope, resourceInfo);
             resourceInfo.assign(secret);
@@ -48,7 +48,7 @@ export class SecretsManager extends Resource {
         return `{{resolve:secretsmanager:${secret.ref}:SecretString:${secretKey}}}`;
     }
 
-    private createSecret(scope: cdk.Construct, resourceInfo: ResourceInfo): CfnSecret {
+    private createSecret(scope: Construct, resourceInfo: ResourceInfo): CfnSecret {
         const secret = new CfnSecret(scope, resourceInfo.id, {
             description: resourceInfo.description,
             generateSecretString: resourceInfo.generateSecretString,

@@ -1,11 +1,11 @@
-import * as cdk from '@aws-cdk/core';
+import { Construct } from 'constructs';
 
 export abstract class Resource {
     constructor() { }
 
-    abstract createResources(scope: cdk.Construct): void;
+    abstract createResources(scope: Construct): void;
 
-    protected createResourceName(scope: cdk.Construct, originalName: string): string {
+    protected createResourceName(scope: Construct, originalName: string): string {
         const systemName = scope.node.tryGetContext('systemName');
         const envType = scope.node.tryGetContext('envType');
         const resourceNamePrefix = `${systemName}-${envType}-`;

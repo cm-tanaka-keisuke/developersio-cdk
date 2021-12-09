@@ -1,4 +1,5 @@
-import * as cdk from '@aws-cdk/core';
+import { Stack, StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 import { Vpc } from './resource/vpc';
 import { Subnet } from './resource/subnet';
 import { InternetGateway } from './resource/internetGateway';
@@ -13,8 +14,8 @@ import { Alb } from './resource/alb';
 import { SecretsManager } from './resource/secretsManager';
 import { Rds } from './resource/rds';
 
-export class DevioStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+export class DevioStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     // VPC
