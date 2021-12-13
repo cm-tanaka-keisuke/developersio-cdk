@@ -32,6 +32,7 @@
 | 24 | デバッグ | `24.debug` | デバッグ方法のご紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-24-debug/) | 2021/09/09 |
 | 25 | Session Manager で SSH 接続 | `25.session-manager-ssh` | SSM の Session Manager を利用した、ローカルマシンから EC2 インスタンスへの SSH 接続方法 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-25-session-manager-ssh/) | 2021/09/16 |
 | 26 | Version 2 | `26.version-2` | AWS CDK v2 の紹介とマイグレーション | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-26-version-2/) | 2021/12/10 |
+| 27 | スタック分割 | `27.split-stack` | CDK におけるクロススタック参照 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-27-split-stack/) | 2021/12/13 |
 
 # Usage
 
@@ -75,6 +76,6 @@
 | macOS | 12.0.1 |
 | VS Code | 1.63.0 |
 | AWS CLI | 2.4.5 |
-| AWS CDK | 2.0.0 |
+| AWS CDK | 2.1.0 |
 | TypeScript | 4.5.2 |
 | Node.js | v14.17.4 |
