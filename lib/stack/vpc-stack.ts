@@ -3,6 +3,7 @@ import { Construct } from 'constructs';
 import { ElasticIp } from '../resource/elastic-ip';
 import { InternetGateway } from '../resource/internet-gateway';
 import { NatGateway } from '../resource/nat-gateway';
+import { NetworkAcl } from '../resource/network-acl';
 import { RouteTable } from '../resource/route-table';
 import { Subnet } from '../resource/subnet';
 import { Vpc } from '../resource/vpc';
@@ -28,5 +29,8 @@ export class VpcStack extends Stack {
 
         // Route Table
         new RouteTable(this, vpc, subnet, internetGateway, natGateway);
+
+        // Network ACL
+        new NetworkAcl(this, vpc, subnet);
     }
 }
