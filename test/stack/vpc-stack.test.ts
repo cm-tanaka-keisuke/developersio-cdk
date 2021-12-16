@@ -79,4 +79,17 @@ test('Vpc Stack', () => {
         Domain: 'vpc',
         Tags: [{ Key: 'Name', Value: 'devio-stg-eip-ngw-1c' }]
     });
+
+    // NAT Gateway
+    template.resourceCountIs('AWS::EC2::NatGateway', 2);
+    template.hasResourceProperties('AWS::EC2::NatGateway', {
+        AllocationId: Match.anyValue(),
+        SubnetId: Match.anyValue(),
+        Tags: [{ Key: 'Name', Value: 'devio-stg-ngw-1a' }]
+    });
+    template.hasResourceProperties('AWS::EC2::NatGateway', {
+        AllocationId: Match.anyValue(),
+        SubnetId: Match.anyValue(),
+        Tags: [{ Key: 'Name', Value: 'devio-stg-ngw-1c' }]
+    });
 });
