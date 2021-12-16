@@ -1,5 +1,6 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { Subnet } from '../resource/subnet';
 import { Vpc } from '../resource/vpc';
 
 export class VpcStack extends Stack {
@@ -7,6 +8,9 @@ export class VpcStack extends Stack {
         super(scope, id, props);
 
         // VPC
-        new Vpc(this);
+        const vpc = new Vpc(this);
+
+        // Subnet
+        new Subnet(this, vpc);
     }
 }
