@@ -35,11 +35,7 @@ export class NatGateway extends BaseResource {
         }
     ];
 
-    constructor(
-        scope: Construct,
-        subnet: Subnet,
-        elasticIp: ElasticIp
-    ) {
+    constructor(scope: Construct, subnet: Subnet, elasticIp: ElasticIp) {
         super();
 
         this.subnet = subnet;
