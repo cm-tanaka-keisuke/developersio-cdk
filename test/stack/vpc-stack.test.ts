@@ -57,4 +57,15 @@ test('Vpc Stack', () => {
         AvailabilityZone: 'ap-northeast-1c',
         Tags: [{ Key: 'Name', Value: 'devio-stg-subnet-db-1c' }]
     });
+
+    // Internet Gateway
+    template.resourceCountIs('AWS::EC2::InternetGateway', 1);
+    template.hasResourceProperties('AWS::EC2::InternetGateway', {
+        Tags: [{ Key: 'Name', Value: 'devio-stg-igw' }]
+    });
+    template.resourceCountIs('AWS::EC2::VPCGatewayAttachment', 1);
+    template.hasResourceProperties('AWS::EC2::VPCGatewayAttachment', {
+        VpcId: Match.anyValue(),
+        InternetGatewayId: Match.anyValue()
+    });
 });
