@@ -68,4 +68,15 @@ test('Vpc Stack', () => {
         VpcId: Match.anyValue(),
         InternetGatewayId: Match.anyValue()
     });
+
+    // Elastic IP
+    template.resourceCountIs('AWS::EC2::EIP', 2);
+    template.hasResourceProperties('AWS::EC2::EIP', {
+        Domain: 'vpc',
+        Tags: [{ Key: 'Name', Value: 'devio-stg-eip-ngw-1a' }]
+    });
+    template.hasResourceProperties('AWS::EC2::EIP', {
+        Domain: 'vpc',
+        Tags: [{ Key: 'Name', Value: 'devio-stg-eip-ngw-1c' }]
+    });
 });
