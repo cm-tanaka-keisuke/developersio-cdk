@@ -1,5 +1,6 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { InternetGateway } from '../resource/internet-gateway';
 import { Subnet } from '../resource/subnet';
 import { Vpc } from '../resource/vpc';
 
@@ -12,5 +13,8 @@ export class VpcStack extends Stack {
 
         // Subnet
         new Subnet(this, vpc);
+
+        // Internet Gateway
+        new InternetGateway(this, vpc);
     }
 }
