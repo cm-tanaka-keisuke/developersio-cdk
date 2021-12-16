@@ -1,5 +1,6 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { ElasticIp } from '../resource/elastic-ip';
 import { InternetGateway } from '../resource/internet-gateway';
 import { Subnet } from '../resource/subnet';
 import { Vpc } from '../resource/vpc';
@@ -16,5 +17,8 @@ export class VpcStack extends Stack {
 
         // Internet Gateway
         new InternetGateway(this, vpc);
+
+        // Elastic IP
+        new ElasticIp(this);
     }
 }
