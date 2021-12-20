@@ -34,6 +34,7 @@
 | 26 | Version 2 | `26.version-2` | AWS CDK v2 の紹介とマイグレーション | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-26-version-2/) | 2021/12/10 |
 | 27 | スタック分割 | `27.split-stack` | CDK におけるクロススタック参照 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-27-split-stack/) | 2021/12/13 |
 | 28 | VPC Stack | `28.vpc-stack` | VPC Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-28-vpc-stack/) | 2021/12/17 |
+| 29 | IAM Stack | `29.iam-stack` | IAM Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-29-iam-stack/) | 2021/12/20 |
 
 # Usage
 
