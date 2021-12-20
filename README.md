@@ -35,6 +35,7 @@
 | 27 | スタック分割 | `27.split-stack` | CDK におけるクロススタック参照 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-27-split-stack/) | 2021/12/13 |
 | 28 | VPC Stack | `28.vpc-stack` | VPC Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-28-vpc-stack/) | 2021/12/17 |
 | 29 | IAM Stack | `29.iam-stack` | IAM Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-29-iam-stack/) | 2021/12/20 |
+| 30 | よく使う CDK コマンド | `30.cdk-command` | CDK コマンドの紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-30-cdk-command/) | 2021/12/21|
 
 # Usage
 
