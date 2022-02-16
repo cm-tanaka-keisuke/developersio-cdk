@@ -9,17 +9,19 @@ import { Subnet } from '../resource/subnet';
 import { Vpc } from '../resource/vpc';
 
 export class VpcStack extends Stack {
+    public readonly vpc: Vpc;
+
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
         // VPC
-        const vpc = new Vpc(this);
+        this.vpc = new Vpc(this);
 
         // Subnet
-        const subnet = new Subnet(this, vpc);
+        const subnet = new Subnet(this, this.vpc);
 
         // Internet Gateway
-        const internetGateway = new InternetGateway(this, vpc);
+        const internetGateway = new InternetGateway(this, this.vpc);
 
         // Elastic IP
         const elasticIp = new ElasticIp(this);
@@ -28,9 +30,9 @@ export class VpcStack extends Stack {
         const natGateway = new NatGateway(this, subnet, elasticIp);
 
         // Route Table
-        new RouteTable(this, vpc, subnet, internetGateway, natGateway);
+        new RouteTable(this, this.vpc, subnet, internetGateway, natGateway);
 
         // Network ACL
-        new NetworkAcl(this, vpc, subnet);
+        new NetworkAcl(this, this.vpc, subnet);
     }
 }
