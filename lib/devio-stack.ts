@@ -14,12 +14,12 @@ export class DevioStack extends Stack {
     });
 
     // IAM Stack
-    new IamStack(scope, 'IamStack', {
+    const iamStack = new IamStack(scope, 'IamStack', {
       stackName: this.createStackName(scope, 'iam')
     });
 
     // EC2 Stack
-    new Ec2Stack(scope, 'Ec2Stack', vpcStack, {
+    new Ec2Stack(scope, 'Ec2Stack', vpcStack, iamStack, {
       stackName: this.createStackName(scope, 'ec2')
     });
   }
