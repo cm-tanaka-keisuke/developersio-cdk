@@ -2,6 +2,7 @@ import { App } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import { VpcStack } from '../../lib/stack/vpc-stack';
 import { Ec2Stack } from '../../lib/stack/ec2-stack';
+import { IamStack } from '../../lib/stack/iam-stack';
 
 test('Ec2 Stack', () => {
     const app = new App({
@@ -11,7 +12,8 @@ test('Ec2 Stack', () => {
         }
     });
     const vpcStack = new VpcStack(app, 'VpcStack');
-    const ec2Stack = new Ec2Stack(app, 'Ec2Stack', vpcStack);
+    const iamStack = new IamStack(app, 'IamStack');
+    const ec2Stack = new Ec2Stack(app, 'Ec2Stack', vpcStack, iamStack);
     const template = Template.fromStack(ec2Stack);
 
     // Security Group
@@ -62,5 +64,28 @@ test('Ec2 Stack', () => {
         ToPort: 3306,
         GroupId: Match.anyValue(),
         SourceSecurityGroupId: Match.anyValue()
+    });
+
+    // Instance
+    template.resourceCountIs('AWS::EC2::Instance', 2);
+    template.hasResourceProperties('AWS::EC2::Instance', {
+        AvailabilityZone: 'ap-northeast-1a',
+        IamInstanceProfile: Match.anyValue(),
+        ImageId: 'ami-08a8688fb7eacb171',
+        InstanceType: 't2.micro',
+        SecurityGroupIds: Match.anyValue(),
+        SubnetId: Match.anyValue(),
+        Tags: [{ Key: 'Name', Value: 'devio-stg-ec2-1a' }],
+        UserData: Match.anyValue()
+    });
+    template.hasResourceProperties('AWS::EC2::Instance', {
+        AvailabilityZone: 'ap-northeast-1c',
+        IamInstanceProfile: Match.anyValue(),
+        ImageId: 'ami-08a8688fb7eacb171',
+        InstanceType: 't2.micro',
+        SecurityGroupIds: Match.anyValue(),
+        SubnetId: Match.anyValue(),
+        Tags: [{ Key: 'Name', Value: 'devio-stg-ec2-1c' }],
+        UserData: Match.anyValue()
     });
 });
