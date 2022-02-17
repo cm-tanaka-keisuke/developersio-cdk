@@ -25,6 +25,5 @@ export class TargetGroup extends BaseResource {
             ],
             vpcId: vpc.vpc.ref
         });
-
     }
 }
