@@ -99,4 +99,32 @@ test('Ec2 Stack', () => {
         Targets: Match.anyValue(),
         VpcId: Match.anyValue()
     });
+
+    // Load Balancer
+    template.resourceCountIs('AWS::ElasticLoadBalancingV2::LoadBalancer', 1);
+    template.hasResourceProperties('AWS::ElasticLoadBalancingV2::LoadBalancer', {
+        IpAddressType: 'ipv4',
+        Name: 'devio-stg-alb',
+        Scheme: 'internet-facing',
+        SecurityGroups: Match.anyValue(),
+        Subnets: Match.anyValue(),
+        Type: 'application'
+    });
+
+    // Listener
+    template.resourceCountIs('AWS::ElasticLoadBalancingV2::Listener', 1);
+    template.hasResourceProperties('AWS::ElasticLoadBalancingV2::Listener', {
+        DefaultActions: [{
+            Type: 'forward',
+            ForwardConfig: {
+                TargetGroups: [{
+                    TargetGroupArn: Match.anyValue(),
+                    Weight: 1
+                }]
+            }
+        }],
+        LoadBalancerArn: Match.anyValue(),
+        Port: 80,
+        Protocol: 'HTTP'
+    });
 });
