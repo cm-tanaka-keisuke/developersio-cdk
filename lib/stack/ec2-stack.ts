@@ -2,6 +2,7 @@ import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Instance } from '../resource/instance';
 import { SecurityGroup } from '../resource/security-group';
+import { TargetGroup } from '../resource/target-group';
 import { IamStack } from './iam-stack';
 import { VpcStack } from './vpc-stack';
 
@@ -20,5 +21,8 @@ export class Ec2Stack extends Stack {
 
         // Instance
         const instance = new Instance(this, vpcStack.subnet, iamStack.role, securityGroup);
+
+        // Target Group
+        const targetGroup = new TargetGroup(this, vpcStack.vpc, instance);
     }
 }
