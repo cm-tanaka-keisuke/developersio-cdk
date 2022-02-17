@@ -88,4 +88,15 @@ test('Ec2 Stack', () => {
         Tags: [{ Key: 'Name', Value: 'devio-stg-ec2-1c' }],
         UserData: Match.anyValue()
     });
+
+    // Target Group
+    template.resourceCountIs('AWS::ElasticLoadBalancingV2::TargetGroup', 1);
+    template.hasResourceProperties('AWS::ElasticLoadBalancingV2::TargetGroup', {
+        Name: 'devio-stg-tg',
+        Port: 80,
+        Protocol: 'HTTP',
+        TargetType: 'instance',
+        Targets: Match.anyValue(),
+        VpcId: Match.anyValue()
+    });
 });
