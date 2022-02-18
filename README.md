@@ -36,6 +36,7 @@
 | 28 | VPC Stack | `28.vpc-stack` | VPC Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-28-vpc-stack/) | 2021/12/17 |
 | 29 | IAM Stack | `29.iam-stack` | IAM Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-29-iam-stack/) | 2021/12/20 |
 | 30 | よく使う CDK コマンド | `30.cdk-command` | CDK コマンドの紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-30-cdk-command/) | 2021/12/21|
+| 31 | EC2 Stack | `31.ec2-stack` | EC2 Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-31-ec2-stack/) | 2022/02/18 |
 
 # Usage
 
@@ -76,9 +77,9 @@
 
 | 環境 | バージョン |
 | --- | --- |
-| macOS | 12.0.1 |
-| VS Code | 1.63.1 |
+| macOS | 12.2.1 |
+| VS Code | 1.64.2 |
 | AWS CLI | 2.4.5 |
-| AWS CDK | 2.2.0 |
+| AWS CDK | 2.12.0 |
 | TypeScript | 4.5.2 |
 | Node.js | v14.17.4 |
