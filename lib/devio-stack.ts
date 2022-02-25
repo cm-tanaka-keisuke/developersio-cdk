@@ -2,6 +2,7 @@ import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Ec2Stack } from './stack/ec2-stack';
 import { IamStack } from './stack/iam-stack';
+import { SecretsManagerStack } from './stack/secrets-manager-stack';
 import { VpcStack } from './stack/vpc-stack';
 
 export class DevioStack extends Stack {
@@ -21,6 +22,11 @@ export class DevioStack extends Stack {
     // EC2 Stack
     new Ec2Stack(scope, 'Ec2Stack', vpcStack, iamStack, {
       stackName: this.createStackName(scope, 'ec2')
+    });
+
+    // Secrets Manager Stack
+    new SecretsManagerStack(scope, 'SecretsManagerStack', {
+      stackName: this.createStackName(scope, 'secrets-manager')
     });
   }
 
