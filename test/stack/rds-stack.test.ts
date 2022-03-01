@@ -21,4 +21,18 @@ test('Rds Stack', () => {
         SubnetIds: Match.anyValue(),
         DBSubnetGroupName: 'devio-stg-rds-sng'
     });
+
+    // Parameter Group
+    template.resourceCountIs('AWS::RDS::DBClusterParameterGroup', 1);
+    template.hasResourceProperties('AWS::RDS::DBClusterParameterGroup', {
+        Description: 'Cluster Parameter Group for RDS',
+        Family: 'aurora-mysql5.7',
+        Parameters: { time_zone: 'UTC' }
+    });
+
+    template.resourceCountIs('AWS::RDS::DBParameterGroup', 1);
+    template.hasResourceProperties('AWS::RDS::DBParameterGroup', {
+        Description: 'Parameter Group for RDS',
+        Family: 'aurora-mysql5.7'
+    });
 });
