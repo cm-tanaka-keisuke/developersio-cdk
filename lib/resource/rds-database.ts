@@ -61,5 +61,36 @@ export class RdsDatabase extends BaseResource {
             storageEncrypted: true,
             vpcSecurityGroupIds: [securityGroup.rds.attrGroupId]
         });
+
+        for (const instanceInfo of this.instances) {
+            this.createInstance(scope, instanceInfo, cluster, subnetGroup, parameterGroup, role);
+        }
+    }
+
+    private createInstance(
+        scope: Construct,
+        instanceInfo: InstanceInfo,
+        cluster: CfnDBCluster,
+        subnetGroup: RdsSubnetGroup,
+        parameterGroup: RdsParameterGroup,
+        role: Role
+    ): CfnDBInstance {
+        const instance = new CfnDBInstance(scope, instanceInfo.id, {
+            dbInstanceClass: RdsDatabase.dbInstanceClass,
+            autoMinorVersionUpgrade: false,
+            availabilityZone: instanceInfo.availabilityZone,
+            dbClusterIdentifier: cluster.ref,
+            dbInstanceIdentifier: this.createResourceName(scope, instanceInfo.resourceName),
+            dbParameterGroupName: parameterGroup.instance.ref,
+            dbSubnetGroupName: subnetGroup.subnetGroup.ref,
+            enablePerformanceInsights: true,
+            engine: RdsDatabase.engine,
+            monitoringInterval: 60,
+            monitoringRoleArn: role.rds.attrArn,
+            performanceInsightsRetentionPeriod: 7,
+            preferredMaintenanceWindow: instanceInfo.preferredMaintenanceWindow,
+        });
+
+        return instance;
     }
 }
