@@ -8,6 +8,8 @@ import { IamStack } from './iam-stack';
 import { VpcStack } from './vpc-stack';
 
 export class Ec2Stack extends Stack {
+    public readonly securityGroup: SecurityGroup;
+
     constructor(
         scope: Construct,
         id: string,
@@ -18,15 +20,15 @@ export class Ec2Stack extends Stack {
         super(scope, id, props);
 
         // Security Group
-        const securityGroup = new SecurityGroup(this, vpcStack.vpc);
+        this.securityGroup = new SecurityGroup(this, vpcStack.vpc);
 
         // Instance
-        const instance = new Instance(this, vpcStack.subnet, iamStack.role, securityGroup);
+        const instance = new Instance(this, vpcStack.subnet, iamStack.role, this.securityGroup);
 
         // Target Group
         const targetGroup = new TargetGroup(this, vpcStack.vpc, instance);
 
         // Load Balancer
-        new LoadBalancer(this, securityGroup, vpcStack.subnet, targetGroup);
+        new LoadBalancer(this, this.securityGroup, vpcStack.subnet, targetGroup);
     }
 }

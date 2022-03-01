@@ -21,19 +21,25 @@ export class DevioStack extends Stack {
     });
 
     // EC2 Stack
-    new Ec2Stack(scope, 'Ec2Stack', vpcStack, iamStack, {
+    const ec2Stack = new Ec2Stack(scope, 'Ec2Stack', vpcStack, iamStack, {
       stackName: this.createStackName(scope, 'ec2')
     });
 
     // Secrets Manager Stack
-    new SecretsManagerStack(scope, 'SecretsManagerStack', {
+    const secretsManagerStack = new SecretsManagerStack(scope, 'SecretsManagerStack', {
       stackName: this.createStackName(scope, 'secrets-manager')
     });
 
     // RDS Stack
-    new RdsStack(scope, 'RdsStack', vpcStack, {
-      stackName: this.createStackName(scope, 'rds')
-    });
+    new RdsStack(
+      scope,
+      'RdsStack',
+      vpcStack,
+      iamStack,
+      ec2Stack,
+      secretsManagerStack,
+      { stackName: this.createStackName(scope, 'rds') }
+    );
   }
 
   private createStackName(scope: Construct, originalName: string): string {
