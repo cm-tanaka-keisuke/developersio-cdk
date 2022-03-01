@@ -61,4 +61,37 @@ test('Rds Stack', () => {
         StorageEncrypted: true,
         VpcSecurityGroupIds: Match.anyValue()
     });
+
+    // DB Instance
+    template.resourceCountIs('AWS::RDS::DBInstance', 2);
+    template.hasResourceProperties('AWS::RDS::DBInstance', {
+        DBInstanceClass: 'db.r5.large',
+        AutoMinorVersionUpgrade: false,
+        AvailabilityZone: 'ap-northeast-1a',
+        DBClusterIdentifier: Match.anyValue(),
+        DBInstanceIdentifier: 'devio-stg-rds-instance-1a',
+        DBParameterGroupName: Match.anyValue(),
+        DBSubnetGroupName: Match.anyValue(),
+        EnablePerformanceInsights: true,
+        Engine: 'aurora-mysql',
+        MonitoringInterval: 60,
+        MonitoringRoleArn: Match.anyValue(),
+        PerformanceInsightsRetentionPeriod: 7,
+        PreferredMaintenanceWindow: 'sun:20:00-sun:20:30',
+    });
+    template.hasResourceProperties('AWS::RDS::DBInstance', {
+        DBInstanceClass: 'db.r5.large',
+        AutoMinorVersionUpgrade: false,
+        AvailabilityZone: 'ap-northeast-1c',
+        DBClusterIdentifier: Match.anyValue(),
+        DBInstanceIdentifier: 'devio-stg-rds-instance-1c',
+        DBParameterGroupName: Match.anyValue(),
+        DBSubnetGroupName: Match.anyValue(),
+        EnablePerformanceInsights: true,
+        Engine: 'aurora-mysql',
+        MonitoringInterval: 60,
+        MonitoringRoleArn: Match.anyValue(),
+        PerformanceInsightsRetentionPeriod: 7,
+        PreferredMaintenanceWindow: 'sun:20:30-sun:21:00',
+    });
 });

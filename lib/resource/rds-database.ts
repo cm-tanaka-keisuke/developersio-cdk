@@ -43,6 +43,7 @@ export class RdsDatabase extends BaseResource {
     ) {
         super();
 
+        // DB Cluster
         const cluster = new CfnDBCluster(scope, 'RdsDbCluster', {
             engine: RdsDatabase.engine,
             backupRetentionPeriod: 7,
@@ -62,6 +63,7 @@ export class RdsDatabase extends BaseResource {
             vpcSecurityGroupIds: [securityGroup.rds.attrGroupId]
         });
 
+        // DB Instance
         for (const instanceInfo of this.instances) {
             this.createInstance(scope, instanceInfo, cluster, subnetGroup, parameterGroup, role);
         }

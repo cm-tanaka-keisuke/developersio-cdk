@@ -8,6 +8,7 @@ export class SecretsManagerStack extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
+        // Secret
         this.secret = new Secret(this);
     }
 }
