@@ -38,6 +38,7 @@
 | 30 | よく使う CDK コマンド | `30.cdk-command` | CDK コマンドの紹介 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-30-cdk-command/) | 2021/12/21|
 | 31 | EC2 Stack | `31.ec2-stack` | EC2 Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-31-ec2-stack/) | 2022/02/18 |
 | 32 | Secrets Manager Stack | `32.secrets-manager-stack` | Secrets Manager Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-32-secrets-manager-stack/) | 2022/02/28 |
+| 33 | RDS Stack | `33.rds-stack` | RDS Stack の実装 | [コチラ](https://dev.classmethod.jp/articles/cdk-practice-33-rds-stack/) | 2022/03/09 |
 
 # Usage
 
@@ -79,7 +80,7 @@
 | 環境 | バージョン |
 | --- | --- |
 | macOS | 12.2.1 |
-| VS Code | 1.64.2 |
+| VS Code | 1.65.1 |
 | AWS CLI | 2.4.5 |
 | AWS CDK | 2.14.0 |
 | TypeScript | 4.5.2 |
